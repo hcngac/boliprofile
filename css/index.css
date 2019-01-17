@@ -49,6 +49,17 @@
     font-size: small;
 }
 
+@media (min-width: 500px){
+
+
+    .card{
+        max-width: 25rem;
+        float:right;
+        margin:2rem;
+        font-size: small;
+    }
+}
+
 @media (min-width: 768px)
 {
     .navcol{
@@ -70,12 +81,5 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding: 0;
-    }
-
-    .card{
-        max-width: 25rem;
-        float:right;
-        margin:2rem;
-        font-size: small;
     }
 }
