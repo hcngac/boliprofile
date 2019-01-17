@@ -44,9 +44,12 @@
 @media (min-width: 768px)
 {
     .navcol{
+        height: 100vh;
         position: relative;
-        margin: auto;
         background-color: white;
+        overflow-y: auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     .navlist.collapse {
         display: block;
