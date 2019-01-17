@@ -47,9 +47,7 @@
         height: 100vh;
         position: relative;
         background-color: white;
-        overflow-y: auto;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow: auto;
     }
     .navlist.collapse {
         display: block;
