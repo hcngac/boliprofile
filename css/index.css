@@ -15,6 +15,12 @@
     background-color: rgba(0,0,0,0.5);
 }
 
+.nav-img{
+    border-radius: 50%;
+    margin: 5%;
+    width:90%;
+}
+
 .navlist{
     padding: 1rem;
 }
@@ -25,23 +31,47 @@
     width: 100%;
 }
 
-.biography {
+.paragraph-biography {
     background-color: floralwhite;
 }
 
-.courses {
+.paragraph-courses {
     background-color: aliceblue;
 }
 
-.publications{
+.paragraph-publications{
     background-color: beige;
 }
 
-.activities {
+.paragraph-activities {
     background-color: cornsilk;
 }
 
-.card{
+.paragraph-projects {
+    background-color: whitesmoke;
+}
+
+.paragraph-students {
+    background-color: ghostwhite;
+}
+
+.student-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.card-student{
+    margin: 2rem;
+    min-width: 12rem;
+    max-width: 16rem;
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.card-info{
     max-width: 25rem;
     float:right;
     margin-top:2rem;
@@ -52,7 +82,7 @@
 @media (min-width: 500px){
 
 
-    .card{
+    .card-info{
         max-width: 25rem;
         float:right;
         margin:2rem;
