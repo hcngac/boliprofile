@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+    <script src="ext/bbcode_parser/xbbcode.js"></script>
+    <link rel="stylesheet" href="ext/bbcode_parser/xbbcode.css">
+
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
@@ -48,7 +51,7 @@
                             <a class="list-group-item list-group-item-action" href="#activities">Professional
                                 Activities
                             </a>
-                            <div class="list-group-item">
+                            <!-- <div class="list-group-item">
                                 <a href="#">
                                     <span class="fab fa-facebook fa-2x"></span>
                                 </a>
@@ -61,7 +64,7 @@
                                 <a href="#">
                                     <span class="fab fa-google-plus-square fa-2x"></span>
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -92,7 +95,9 @@
                                 </h6>
 
                                 <p class="card-text" style="font-size:medium;" id="research-interests-container">
-                                    <!-- <span class="badge badge-secondary">item</span> -->
+                                    <template id="research-interests-template">
+                                        <span class="badge badge-secondary">item</span>
+                                    </template>
                                 </p>
                             </div>
                         </div>
@@ -104,739 +109,82 @@
                     <div class="paragraph paragraph-courses" id="courses">
                         <h4>Teaching Courses</h4>
                         <p class="text-justify" style="font-size:medium;">
-                            <ul>
-                                <li>
-                                    <a href="https://course.cse.ust.hk/comp3511">
-                                        COMP 3511 - Operating Systems
-                                    </a>
-                                </li>
+                            <ul id="courses-container">
+                                <template id="courses-template">
+                                    <li>
+                                        <a href="link">
+                                            full-name
+                                        </a>
+                                    </li>
+                                </template>
                             </ul>
                         </p>
                     </div>
                     <div class="paragraph paragraph-projects" id="projects">
                         <h4>Ongoing Projects</h4>
-                        <div class="list-group" style="width:100%; margin-top: 2rem;margin-bottom: 2rem;">
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div data-toggle="collapse" data-target="#projects-1-content">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
+                        <div class="list-group" style="width:100%; margin-top: 2rem;margin-bottom: 2rem;" id="projects-container">
+                            <template id="projects-title-template">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div data-toggle="collapse" data-target="#project-code">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">List group item heading</h5>
+                                        </div>
+                                        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
+                                            eget risus varius blandit.</p>
+                                        <small class="text-muted">
+                                            Project member:
+                                            <!-- <span class="badge badge-info">Keith Alsop</span> -->
+                                        </small>
                                     </div>
-                                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam
-                                        eget risus varius blandit.</p>
-                                    <small class="text-muted">
-                                        Project member:
-                                        <span class="badge badge-info">Keith Alsop</span>
-                                        <span class="badge badge-info">Amy Brown</span>
-                                    </small>
-                                </div>
-                            </a>
-                            <li class="text-justify list-group-item collapse" id="projects-1-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod
-                                    hendrerit
-                                    tincidunt. Pellentesque et condimentum ex. Etiam ultricies semper elit ac
-                                    porta.
-                                    Mauris feugiat egestas mauris ut efficitur. Phasellus tempus ultricies dui,
-                                    eget
-                                    scelerisque massa cursus at. Sed arcu massa, vulputate at urna ut, egestas
-                                    interdum
-                                    dui. Sed egestas ut purus ac condimentum. Vestibulum pretium justo diam, nec
-                                    euismod magna sagittis ut. Sed in euismod ipsum, ut mattis ante. Vivamus
-                                    tincidunt,
-                                    arcu at imperdiet sodales, diam risus fermentum nisi, nec dictum nunc justo a
-                                    risus. Vestibulum tincidunt ante sed nisl ultricies imperdiet. Maecenas
-                                    sagittis
-                                    odio ac tortor placerat scelerisque.
-                                </p>
-                                <p>
-                                    Curabitur sodales dapibus commodo. Aliquam et cursus sem. Curabitur feugiat sed
-                                    augue a pretium. Vivamus pellentesque est et egestas cursus. Quisque efficitur
-                                    varius quam, sit amet pretium lectus finibus sit amet. Etiam condimentum
-                                    bibendum
-                                    nunc commodo imperdiet. Vestibulum sem turpis, vehicula dapibus tempor ut,
-                                    laoreet
-                                    quis enim.
-                                </p>
-                                <p>
-                                    Donec cursus tellus ac nisl luctus imperdiet. Proin sed venenatis felis, eget
-                                    ultrices tellus. Morbi in quam tincidunt, accumsan turpis id, bibendum justo.
-                                    Curabitur vitae ullamcorper lacus. Sed molestie urna a vehicula gravida.
-                                    Curabitur
-                                    sed malesuada purus, faucibus efficitur tellus. Vestibulum tincidunt sit amet
-                                    dolor
-                                    sed vestibulum. Vivamus vel aliquam tellus. Quisque justo lacus, finibus
-                                    porttitor
-                                    massa vitae, laoreet auctor leo. Aliquam mattis, nisl ac vehicula molestie, dui
-                                    dolor pretium nisl, et feugiat mauris est nec diam. Nam sapien mauris, rutrum
-                                    vel
-                                    commodo in, fringilla in lectus. Proin accumsan placerat pulvinar. Proin congue
-                                    viverra pulvinar. Sed a consectetur sem. Cras in tristique sem.
-                                </p>
-                                <p>
-                                    Proin pellentesque lectus et mi ullamcorper, non faucibus lacus fermentum.
-                                    Pellentesque ut sagittis augue, nec cursus urna. Vivamus posuere arcu magna, in
-                                    malesuada justo finibus in. Nulla malesuada magna mauris, non suscipit arcu
-                                    blandit
-                                    quis. Fusce orci elit, feugiat vitae eros ac, suscipit lobortis turpis.
-                                    Vestibulum
-                                    et tincidunt diam, id convallis odio. Nulla dapibus magna ac interdum interdum.
-                                    Nulla facilisi. Maecenas quis sem quis purus convallis pharetra sed in justo.
-                                    Ut
-                                    varius imperdiet nunc in tempor.
-                                </p>
-                                <p>
-                                    Sed tellus neque, suscipit nec euismod at, sodales non turpis. Duis in
-                                    sollicitudin
-                                    diam, quis sollicitudin elit. Sed in ligula ligula. Donec sem elit, pulvinar
-                                    sed
-                                    arcu vel, congue dapibus ex. Nunc at diam tempus, fermentum augue eu, rutrum
-                                    nisi.
-                                    Integer at euismod quam, eu porttitor libero. Nunc ultricies feugiat risus, nec
-                                    aliquet neque sagittis sit amet.
-                                </p>
-                                <p>
-                                    Aliquam rhoncus elit at convallis viverra. Mauris et nisl mollis, posuere lorem
-                                    vitae, dignissim enim. Pellentesque ut felis faucibus justo rutrum vulputate a
-                                    et
-                                    orci. Fusce vel egestas est. Nullam elementum, massa ac sagittis porta, eros
-                                    tellus
-                                    pharetra est, vitae pulvinar dui nisi sit amet urna. Maecenas placerat augue
-                                    lacus,
-                                    venenatis iaculis felis pulvinar at. Vestibulum nec tellus ac leo pulvinar
-                                    sagittis
-                                    a ac risus. Nam et augue bibendum, dignissim diam ac, semper ligula. Morbi
-                                    vehicula
-                                    vehicula sapien non luctus.
-                                </p>
-                                <p>
-                                    Nulla eleifend rhoncus justo ut convallis. Donec risus nisl, maximus quis
-                                    viverra
-                                    tempus, lobortis a velit. Vestibulum id purus ligula. Ut maximus velit sit amet
-                                    nunc fringilla, ut tristique massa posuere. Suspendisse ligula est, tincidunt
-                                    in
-                                    accumsan sed, feugiat nec lectus. Orci varius natoque penatibus et magnis dis
-                                    parturient montes, nascetur ridiculus mus. Sed eu lorem nibh. Etiam malesuada,
-                                    nisl
-                                    vel semper volutpat, lectus ex dignissim purus, et pharetra nisl ante a orci.
-                                    Cras
-                                    mauris arcu, pellentesque at congue ac, sollicitudin sed ipsum. Nunc ut mauris
-                                    sem.
-                                </p>
-                                <p>
-                                    In eget volutpat erat, quis congue mauris. Quisque id fringilla sem. Vestibulum
-                                    ac
-                                    dictum mauris. Nullam at nisi finibus, rhoncus tellus at, rhoncus urna. In a
-                                    sodales odio. Sed at mollis enim. Sed eget commodo erat, quis egestas libero.
-                                    Sed
-                                    ex erat, tempus id sem condimentum, placerat euismod ex.
-                                </p>
-                                <p>
-                                    Sed euismod metus ac ipsum posuere, laoreet cursus tortor rutrum. Donec
-                                    consectetur
-                                    lorem purus. Curabitur turpis tellus, molestie eu ante id, maximus vulputate
-                                    risus.
-                                    Sed sit amet pulvinar velit. Maecenas egestas id enim suscipit posuere. Morbi
-                                    rhoncus pharetra bibendum. Nam ullamcorper venenatis maximus. Praesent suscipit
-                                    id
-                                    enim non sagittis. Maecenas quis urna auctor, vulputate odio non, sollicitudin
-                                    lorem. Nam ac nisl eu lorem rhoncus hendrerit. Sed lacinia diam nisi, at
-                                    maximus
-                                    urna suscipit rhoncus. Morbi volutpat neque a magna mattis sagittis. Mauris
-                                    tempus
-                                    tellus nec eros faucibus ullamcorper. Maecenas placerat, ante non mattis
-                                    pellentesque, nisl risus suscipit quam, ac ullamcorper risus ante sit amet
-                                    lorem.
-                                    In eu tempus nisl.
-                                </p>
-                                <p>
-                                    Sed ultrices justo in turpis laoreet rhoncus. Mauris sit amet sollicitudin
-                                    nunc.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod
-                                    purus ut
-                                    leo porta, eget malesuada nunc euismod. Duis ac tellus eleifend, sagittis lorem
-                                    ut,
-                                    faucibus ipsum. Quisque iaculis fermentum finibus. Nam dapibus feugiat ante, eu
-                                    sodales orci facilisis ornare. Cras quis feugiat libero, sit amet vehicula
-                                    metus.
-                                    Cras iaculis massa quis libero sollicitudin molestie. Ut dignissim quis mauris
-                                    sit
-                                    amet feugiat. Aliquam lobortis interdum eros id malesuada. Maecenas sed ligula
-                                    vitae ante eleifend faucibus eget a nulla. Proin sed semper est.
-                                </p>
-                                <a href="" data-toggle="collapse" data-target="#projects-1-content">Close</a>
-                            </li>
-
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div data-toggle="collapse" data-target="#projects-2-content">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
-                                    </div>
-                                    <p class="mb-1">Sed porta metus sed neque malesuada, ac tristique orci
-                                        pellentesque. Curabitur id odio scelerisque, pretium mi a, aliquet felis.
-                                    </p>
-                                    <small class="text-muted">
-                                        Project member:
-                                        <span class="badge badge-info">Deirdre Smith</span>
-                                        <span class="badge badge-info">Max Buckland</span>
-                                    </small>
-                                </div>
-                            </a>
-                            <li class="text-justify list-group-item collapse" id="projects-2-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod
-                                    hendrerit
-                                    tincidunt. Pellentesque et condimentum ex. Etiam ultricies semper elit ac
-                                    porta.
-                                    Mauris feugiat egestas mauris ut efficitur. Phasellus tempus ultricies dui,
-                                    eget
-                                    scelerisque massa cursus at. Sed arcu massa, vulputate at urna ut, egestas
-                                    interdum
-                                    dui. Sed egestas ut purus ac condimentum. Vestibulum pretium justo diam, nec
-                                    euismod magna sagittis ut. Sed in euismod ipsum, ut mattis ante. Vivamus
-                                    tincidunt,
-                                    arcu at imperdiet sodales, diam risus fermentum nisi, nec dictum nunc justo a
-                                    risus. Vestibulum tincidunt ante sed nisl ultricies imperdiet. Maecenas
-                                    sagittis
-                                    odio ac tortor placerat scelerisque.
-                                </p>
-                                <p>
-                                    Curabitur sodales dapibus commodo. Aliquam et cursus sem. Curabitur feugiat sed
-                                    augue a pretium. Vivamus pellentesque est et egestas cursus. Quisque efficitur
-                                    varius quam, sit amet pretium lectus finibus sit amet. Etiam condimentum
-                                    bibendum
-                                    nunc commodo imperdiet. Vestibulum sem turpis, vehicula dapibus tempor ut,
-                                    laoreet
-                                    quis enim.
-                                </p>
-                                <p>
-                                    Donec cursus tellus ac nisl luctus imperdiet. Proin sed venenatis felis, eget
-                                    ultrices tellus. Morbi in quam tincidunt, accumsan turpis id, bibendum justo.
-                                    Curabitur vitae ullamcorper lacus. Sed molestie urna a vehicula gravida.
-                                    Curabitur
-                                    sed malesuada purus, faucibus efficitur tellus. Vestibulum tincidunt sit amet
-                                    dolor
-                                    sed vestibulum. Vivamus vel aliquam tellus. Quisque justo lacus, finibus
-                                    porttitor
-                                    massa vitae, laoreet auctor leo. Aliquam mattis, nisl ac vehicula molestie, dui
-                                    dolor pretium nisl, et feugiat mauris est nec diam. Nam sapien mauris, rutrum
-                                    vel
-                                    commodo in, fringilla in lectus. Proin accumsan placerat pulvinar. Proin congue
-                                    viverra pulvinar. Sed a consectetur sem. Cras in tristique sem.
-                                </p>
-                                <p>
-                                    Proin pellentesque lectus et mi ullamcorper, non faucibus lacus fermentum.
-                                    Pellentesque ut sagittis augue, nec cursus urna. Vivamus posuere arcu magna, in
-                                    malesuada justo finibus in. Nulla malesuada magna mauris, non suscipit arcu
-                                    blandit
-                                    quis. Fusce orci elit, feugiat vitae eros ac, suscipit lobortis turpis.
-                                    Vestibulum
-                                    et tincidunt diam, id convallis odio. Nulla dapibus magna ac interdum interdum.
-                                    Nulla facilisi. Maecenas quis sem quis purus convallis pharetra sed in justo.
-                                    Ut
-                                    varius imperdiet nunc in tempor.
-                                </p>
-                                <p>
-                                    Sed tellus neque, suscipit nec euismod at, sodales non turpis. Duis in
-                                    sollicitudin
-                                    diam, quis sollicitudin elit. Sed in ligula ligula. Donec sem elit, pulvinar
-                                    sed
-                                    arcu vel, congue dapibus ex. Nunc at diam tempus, fermentum augue eu, rutrum
-                                    nisi.
-                                    Integer at euismod quam, eu porttitor libero. Nunc ultricies feugiat risus, nec
-                                    aliquet neque sagittis sit amet.
-                                </p>
-                                <p>
-                                    Aliquam rhoncus elit at convallis viverra. Mauris et nisl mollis, posuere lorem
-                                    vitae, dignissim enim. Pellentesque ut felis faucibus justo rutrum vulputate a
-                                    et
-                                    orci. Fusce vel egestas est. Nullam elementum, massa ac sagittis porta, eros
-                                    tellus
-                                    pharetra est, vitae pulvinar dui nisi sit amet urna. Maecenas placerat augue
-                                    lacus,
-                                    venenatis iaculis felis pulvinar at. Vestibulum nec tellus ac leo pulvinar
-                                    sagittis
-                                    a ac risus. Nam et augue bibendum, dignissim diam ac, semper ligula. Morbi
-                                    vehicula
-                                    vehicula sapien non luctus.
-                                </p>
-                                <p>
-                                    Nulla eleifend rhoncus justo ut convallis. Donec risus nisl, maximus quis
-                                    viverra
-                                    tempus, lobortis a velit. Vestibulum id purus ligula. Ut maximus velit sit amet
-                                    nunc fringilla, ut tristique massa posuere. Suspendisse ligula est, tincidunt
-                                    in
-                                    accumsan sed, feugiat nec lectus. Orci varius natoque penatibus et magnis dis
-                                    parturient montes, nascetur ridiculus mus. Sed eu lorem nibh. Etiam malesuada,
-                                    nisl
-                                    vel semper volutpat, lectus ex dignissim purus, et pharetra nisl ante a orci.
-                                    Cras
-                                    mauris arcu, pellentesque at congue ac, sollicitudin sed ipsum. Nunc ut mauris
-                                    sem.
-                                </p>
-                                <p>
-                                    In eget volutpat erat, quis congue mauris. Quisque id fringilla sem. Vestibulum
-                                    ac
-                                    dictum mauris. Nullam at nisi finibus, rhoncus tellus at, rhoncus urna. In a
-                                    sodales odio. Sed at mollis enim. Sed eget commodo erat, quis egestas libero.
-                                    Sed
-                                    ex erat, tempus id sem condimentum, placerat euismod ex.
-                                </p>
-                                <p>
-                                    Sed euismod metus ac ipsum posuere, laoreet cursus tortor rutrum. Donec
-                                    consectetur
-                                    lorem purus. Curabitur turpis tellus, molestie eu ante id, maximus vulputate
-                                    risus.
-                                    Sed sit amet pulvinar velit. Maecenas egestas id enim suscipit posuere. Morbi
-                                    rhoncus pharetra bibendum. Nam ullamcorper venenatis maximus. Praesent suscipit
-                                    id
-                                    enim non sagittis. Maecenas quis urna auctor, vulputate odio non, sollicitudin
-                                    lorem. Nam ac nisl eu lorem rhoncus hendrerit. Sed lacinia diam nisi, at
-                                    maximus
-                                    urna suscipit rhoncus. Morbi volutpat neque a magna mattis sagittis. Mauris
-                                    tempus
-                                    tellus nec eros faucibus ullamcorper. Maecenas placerat, ante non mattis
-                                    pellentesque, nisl risus suscipit quam, ac ullamcorper risus ante sit amet
-                                    lorem.
-                                    In eu tempus nisl.
-                                </p>
-                                <p>
-                                    Sed ultrices justo in turpis laoreet rhoncus. Mauris sit amet sollicitudin
-                                    nunc.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod
-                                    purus ut
-                                    leo porta, eget malesuada nunc euismod. Duis ac tellus eleifend, sagittis lorem
-                                    ut,
-                                    faucibus ipsum. Quisque iaculis fermentum finibus. Nam dapibus feugiat ante, eu
-                                    sodales orci facilisis ornare. Cras quis feugiat libero, sit amet vehicula
-                                    metus.
-                                    Cras iaculis massa quis libero sollicitudin molestie. Ut dignissim quis mauris
-                                    sit
-                                    amet feugiat. Aliquam lobortis interdum eros id malesuada. Maecenas sed ligula
-                                    vitae ante eleifend faucibus eget a nulla. Proin sed semper est.
-                                </p>
-                                <a href="" data-toggle="collapse" data-target="#projects-2-content">Close</a>
-                            </li>
-
-                            <a href="#" class="list-group-item list-group-item-action">
-                                <div data-toggle="collapse" data-target="#projects-3-content">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">List group item heading</h5>
-                                    </div>
-                                    <p class="mb-1">Aliquam fringilla massa rhoncus, gravida erat sit amet, elementum
-                                        quam. Quisque finibus velit sit amet tincidunt mollis.</p>
-                                    <small class="text-muted">
-                                        Project member:
-                                        <span class="badge badge-info">Jennifer Sharp</span>
-                                        <span class="badge badge-info">Kevin Abraham</span>
-                                    </small>
-                                </div>
-                            </a>
-                            <li class="text-justify list-group-item collapse" id="projects-3-content">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque euismod
-                                    hendrerit
-                                    tincidunt. Pellentesque et condimentum ex. Etiam ultricies semper elit ac
-                                    porta.
-                                    Mauris feugiat egestas mauris ut efficitur. Phasellus tempus ultricies dui,
-                                    eget
-                                    scelerisque massa cursus at. Sed arcu massa, vulputate at urna ut, egestas
-                                    interdum
-                                    dui. Sed egestas ut purus ac condimentum. Vestibulum pretium justo diam, nec
-                                    euismod magna sagittis ut. Sed in euismod ipsum, ut mattis ante. Vivamus
-                                    tincidunt,
-                                    arcu at imperdiet sodales, diam risus fermentum nisi, nec dictum nunc justo a
-                                    risus. Vestibulum tincidunt ante sed nisl ultricies imperdiet. Maecenas
-                                    sagittis
-                                    odio ac tortor placerat scelerisque.
-                                </p>
-                                <p>
-                                    Curabitur sodales dapibus commodo. Aliquam et cursus sem. Curabitur feugiat sed
-                                    augue a pretium. Vivamus pellentesque est et egestas cursus. Quisque efficitur
-                                    varius quam, sit amet pretium lectus finibus sit amet. Etiam condimentum
-                                    bibendum
-                                    nunc commodo imperdiet. Vestibulum sem turpis, vehicula dapibus tempor ut,
-                                    laoreet
-                                    quis enim.
-                                </p>
-                                <p>
-                                    Donec cursus tellus ac nisl luctus imperdiet. Proin sed venenatis felis, eget
-                                    ultrices tellus. Morbi in quam tincidunt, accumsan turpis id, bibendum justo.
-                                    Curabitur vitae ullamcorper lacus. Sed molestie urna a vehicula gravida.
-                                    Curabitur
-                                    sed malesuada purus, faucibus efficitur tellus. Vestibulum tincidunt sit amet
-                                    dolor
-                                    sed vestibulum. Vivamus vel aliquam tellus. Quisque justo lacus, finibus
-                                    porttitor
-                                    massa vitae, laoreet auctor leo. Aliquam mattis, nisl ac vehicula molestie, dui
-                                    dolor pretium nisl, et feugiat mauris est nec diam. Nam sapien mauris, rutrum
-                                    vel
-                                    commodo in, fringilla in lectus. Proin accumsan placerat pulvinar. Proin congue
-                                    viverra pulvinar. Sed a consectetur sem. Cras in tristique sem.
-                                </p>
-                                <p>
-                                    Proin pellentesque lectus et mi ullamcorper, non faucibus lacus fermentum.
-                                    Pellentesque ut sagittis augue, nec cursus urna. Vivamus posuere arcu magna, in
-                                    malesuada justo finibus in. Nulla malesuada magna mauris, non suscipit arcu
-                                    blandit
-                                    quis. Fusce orci elit, feugiat vitae eros ac, suscipit lobortis turpis.
-                                    Vestibulum
-                                    et tincidunt diam, id convallis odio. Nulla dapibus magna ac interdum interdum.
-                                    Nulla facilisi. Maecenas quis sem quis purus convallis pharetra sed in justo.
-                                    Ut
-                                    varius imperdiet nunc in tempor.
-                                </p>
-                                <p>
-                                    Sed tellus neque, suscipit nec euismod at, sodales non turpis. Duis in
-                                    sollicitudin
-                                    diam, quis sollicitudin elit. Sed in ligula ligula. Donec sem elit, pulvinar
-                                    sed
-                                    arcu vel, congue dapibus ex. Nunc at diam tempus, fermentum augue eu, rutrum
-                                    nisi.
-                                    Integer at euismod quam, eu porttitor libero. Nunc ultricies feugiat risus, nec
-                                    aliquet neque sagittis sit amet.
-                                </p>
-                                <p>
-                                    Aliquam rhoncus elit at convallis viverra. Mauris et nisl mollis, posuere lorem
-                                    vitae, dignissim enim. Pellentesque ut felis faucibus justo rutrum vulputate a
-                                    et
-                                    orci. Fusce vel egestas est. Nullam elementum, massa ac sagittis porta, eros
-                                    tellus
-                                    pharetra est, vitae pulvinar dui nisi sit amet urna. Maecenas placerat augue
-                                    lacus,
-                                    venenatis iaculis felis pulvinar at. Vestibulum nec tellus ac leo pulvinar
-                                    sagittis
-                                    a ac risus. Nam et augue bibendum, dignissim diam ac, semper ligula. Morbi
-                                    vehicula
-                                    vehicula sapien non luctus.
-                                </p>
-                                <p>
-                                    Nulla eleifend rhoncus justo ut convallis. Donec risus nisl, maximus quis
-                                    viverra
-                                    tempus, lobortis a velit. Vestibulum id purus ligula. Ut maximus velit sit amet
-                                    nunc fringilla, ut tristique massa posuere. Suspendisse ligula est, tincidunt
-                                    in
-                                    accumsan sed, feugiat nec lectus. Orci varius natoque penatibus et magnis dis
-                                    parturient montes, nascetur ridiculus mus. Sed eu lorem nibh. Etiam malesuada,
-                                    nisl
-                                    vel semper volutpat, lectus ex dignissim purus, et pharetra nisl ante a orci.
-                                    Cras
-                                    mauris arcu, pellentesque at congue ac, sollicitudin sed ipsum. Nunc ut mauris
-                                    sem.
-                                </p>
-                                <p>
-                                    In eget volutpat erat, quis congue mauris. Quisque id fringilla sem. Vestibulum
-                                    ac
-                                    dictum mauris. Nullam at nisi finibus, rhoncus tellus at, rhoncus urna. In a
-                                    sodales odio. Sed at mollis enim. Sed eget commodo erat, quis egestas libero.
-                                    Sed
-                                    ex erat, tempus id sem condimentum, placerat euismod ex.
-                                </p>
-                                <p>
-                                    Sed euismod metus ac ipsum posuere, laoreet cursus tortor rutrum. Donec
-                                    consectetur
-                                    lorem purus. Curabitur turpis tellus, molestie eu ante id, maximus vulputate
-                                    risus.
-                                    Sed sit amet pulvinar velit. Maecenas egestas id enim suscipit posuere. Morbi
-                                    rhoncus pharetra bibendum. Nam ullamcorper venenatis maximus. Praesent suscipit
-                                    id
-                                    enim non sagittis. Maecenas quis urna auctor, vulputate odio non, sollicitudin
-                                    lorem. Nam ac nisl eu lorem rhoncus hendrerit. Sed lacinia diam nisi, at
-                                    maximus
-                                    urna suscipit rhoncus. Morbi volutpat neque a magna mattis sagittis. Mauris
-                                    tempus
-                                    tellus nec eros faucibus ullamcorper. Maecenas placerat, ante non mattis
-                                    pellentesque, nisl risus suscipit quam, ac ullamcorper risus ante sit amet
-                                    lorem.
-                                    In eu tempus nisl.
-                                </p>
-                                <p>
-                                    Sed ultrices justo in turpis laoreet rhoncus. Mauris sit amet sollicitudin
-                                    nunc.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod
-                                    purus ut
-                                    leo porta, eget malesuada nunc euismod. Duis ac tellus eleifend, sagittis lorem
-                                    ut,
-                                    faucibus ipsum. Quisque iaculis fermentum finibus. Nam dapibus feugiat ante, eu
-                                    sodales orci facilisis ornare. Cras quis feugiat libero, sit amet vehicula
-                                    metus.
-                                    Cras iaculis massa quis libero sollicitudin molestie. Ut dignissim quis mauris
-                                    sit
-                                    amet feugiat. Aliquam lobortis interdum eros id malesuada. Maecenas sed ligula
-                                    vitae ante eleifend faucibus eget a nulla. Proin sed semper est.
-                                </p>
-                                <a href="" data-toggle="collapse" data-target="#projects-3-content">Close</a>
-                            </li>
-
-
-
-
+                                </a>
+                            </template>
+                            <template id="projects-content-template">
+                                <li class="text-justify list-group-item collapse" id="project-code">
+                                    <!-- Contents -->
+                                    <!-- <a href="" data-toggle="collapse" data-target="#project-code">Close</a> -->
+                                </li>
+                            </template>
                         </div>
                     </div>
                     <div class="paragraph paragraph-students" id="students">
                         <h4>Students</h4>
-                        <div class="student-container text-justify">
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Keith Alsop</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
+                        <div class="student-container text-justify" id="students-container">
+                            <template id="students-template">
+                                <div class="card card-student">
+                                    <a class="img-link-student" href="">
+                                        <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Keith Alsop</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and
+                                            make up the bulk of the card's content. <a class="link-student" href="">See more...</a></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Amy Brown</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Deirdre Smith</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Max Buckland</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Jennifer Sharp</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Kevin Abraham</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
-                            <div class="card card-student">
-                                <a href="">
-                                    <img src="img/avatar.png" class="card-img-top" alt="..." style="border-radius:50%; width: 80%;margin: 10%;">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Caroline Avery</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and
-                                        make up the bulk of the card's content. <a href="">See more...</a></p>
-                                </div>
-                            </div>
+                            </template>
                         </div>
                     </div>
                     <div class="paragraph paragraph-publications" id="publications">
                         <h4>Recent Publications</h4>
 
                         <h5>Journal Publications</h5>
-                        <ol class="text-justify" style="font-size:0.75em;">
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        J. Jiang, S. Ma, <b>B. Li</b> and B. Li, “Adia: Achieving High Link Utilization with Coflow-Aware Scheduling in Data Center Networks,” to appear in IEEE Transactions on Cloud Computing, 2019.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Chen, S. Liu, B. Li and <b>B. Li</b>,“'Scheduling Jobs across Geo-Distributed Datacenters with Max-Min Fairness,” to appear in IEEE Transactions on Network
-                                        Science and Engineering, 2019.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Chen, Y. Feng, B. Li and <b>B. Li</b>, “Efficient Performance-Centric Bandwidth Allocation with Fairness Tradeoff,” IEEE Transactions on Parallel and Distributed Systems, 29(8):1693-1706, August 2018.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Xiao, B. Li and <b>B. Li</b>, “Tack: Learning Towards Contextual and Ephemeral
-                                        Indoor Localization with Crowdsourcing,” IEEE Journal on Selected Areas in
-                                        Communications, Special Issue on Human-in-the-Loop Mobile Networks,
-                                        35(4):863-879, April 2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        W. Liu, T. Deng, Y. Yang, H. Jiang, X.-F. Liao, J.-C. Liu, <b>B. Li</b> and G. Jiang,
-                                        “Towards Robust Surface Skeleton Extraction and its Applications in 3D Wireless
-                                        Sensor Networks,” IEEE/ACM Transactions on Networking, 24(6):3300-3313,
-                                        December 2016.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Lin, X.-F. Liao, G. Tan, H. Jin, X. Yang, W. Zhang and <b>B. Li</b>, “LiveRender: A
-                                        Cloud Gaming System Based on Compressed Graphics Streaming,” IEEE/ACM
-                                        Transactions on Networking, 24(4):2128-2139, August 2016.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        Q. He, J.-C. Liu, C.-G. Wang and <b>B. Li</b>, “Coping with Heterogeneous Video
-                                        Contributors and Viewers in Crowdsourced Live Streaming: A Cloud-based
-                                        Approach,” IEEE Transactions on Multimedia, 18(5):916-928, May 2016.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        H. Zhang, H. Jiang, <b>B. Li</b>, F.-M. Liu, A. Vasilakos and J.-C. Liu, “A Framework
-                                        for Truthful Online Auction in Cloud Computing with Heterogeneous User
-                                        Demands,” IEEE Transactions on Computers, 65(3):805-818, March 2016.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        J. Jiang, S.-K. Zhang, <b>B. Li</b> and B. Li, “Maximized Cellular Traffic Offloading
-                                        via Device-to-Device Content Sharing,” IEEE Journal on Selected Areas in
-                                        Communications, 34(1):82-91, January 2016.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        Y. Wu, C. Wu, <b>B. Li</b>, L. Zhang, Z.-P. Li and F. Lau, "Scaling Social Media
-                                        Applications into Geo-Distributed Clouds,” IEEE/ACM Transactions on Networking,
-                                        23(3):689-702, June 2015.
-                                    </font>
-                                </p>
-                            </li>
+                        <ol class="text-justify" id="journals-container">
+                            <template id="publications-template">
+                                <li>
+                                    <p class="text-justify" style="font-size: medium;">
+
+                                    </p>
+                                </li>
+                            </template>
                         </ol>
                         <h5>Conference Publications</h5>
-                        <ol class="text-justify" style="font-size:0.75em;">
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        C. Chen, W. Wang and <b>B. Li</b>, “Round-Robin Synchronization: Mitigating
-                                        Communication Bottlenecks in Parameter Servers,” IEEE INFOCOM, Paris, France,
-                                        April 29 - May 2, 2019.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        S. Shi. X.-W. Chu and <b>B. Li</b>, “MG-WFBP: Efficient Data Communication for
-                                        Distributed Synchronous SGD Algorithms,” IEEE INFOCOM, Paris, France, April 29
-                                        - May 2, 2019.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Wang, W. Wang and <b>B. Li</b>, “Utopia: Near-optimal Coflow Scheduling with
-                                        Isolation Guarantee,” IEEE INFOCOM, Honolulu, USA, April 15-19, 2018
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        C. Chen, W. Wang and <b>B. Li</b>, “Performance-Aware Fair Scheduling: Exploiting
-                                        Demand Elasticity of Data Analytics Jobs, “IEEE INFOCOM, Honolulu, USA, April
-                                        15-19, 2018.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Xiao, B. Li and <b>B. Li</b>, “Privacy-Preserving Inference in Crowdsourcing
-                                        Systems,” IEEE Conference on Communications and Network Security (CNS), Las
-                                        Vegas, October 9-11, 2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        C. Chen, W. Wang and <b>B. Li</b>, “Speculative Slot Reservation: Enforcing Service
-                                        Isolation for Dependent Data-Parallel Computations,” IEEE ICDCS, Atlanta, GA,
-                                        June 5-8, 2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        C. Chen, W. Wang, S.-K. Zhang and <b>B. Li</b>, “Cluster Fair Queueing: Speeding up
-                                        Data-Parallel Jobs with Delay Guarantees,” IEEE INFOCOM, Atlanta, GA, USA, May
-                                        1-4, 2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        W. Wang, S. Ma, <b>B. Li</b> and B. Li, “Coflex: Navigating the Fairness-Efficiency
-                                        Tradeoff for Coflow Scheduling,” IEEE INFOCOM, Atlanta, GA, USA, May 1-4, 2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        L. Chen, S. Liu, B. Li and <b>B. Li</b>, “'Scheduling Jobs across Geo-Distributed
-                                        Datacenters with Max-Min Fairness,” IEEE INFOCOM, Atlanta, GA, USA, May 1-4,
-                                        2017.
-                                    </font>
-                                </p>
-                            </li>
-                            <li>
-                                <p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px" align="justify">
-                                    <font face="Century Gothic" size="2">
-                                        Y. Niu, F.-M. Liu, X. Fei and <b>B. Li</b>, “'Handling Flash Deals with Soft Guarantee
-                                        in Hybrid Cloud,” IEEE INFOCOM, Atlanta, GA, USA, May 1-4, 2017.
-                                    </font>
-                                </p>
-                            </li>
+                        <ol class="text-justify" id="conferences-container">
+
                         </ol>
                     </div>
                     <div class="paragraph paragraph-activities" id="activities">
                         <h4>Professional Activities</h4>
-                        <ul class="text-justify" style="font-size:medium;">
-                            <li>Editor, IEEE Transactions on Mobile Computing (2005 - present)</li>
-                            <li>Editor, IEEE Communications Surveys and Tutorials (2007 - present)</li>
-                            <li>Editor, ACM/Springer Journal of Wireless Networks (WINET) (1999 - present)</li>
+                        <ul class="text-justify" style="font-size:medium;" id="activities-container">
+
                         </ul>
                         <div style="height:50vh;"></div>
                     </div>
