@@ -1,0 +1,3 @@
+[submodule "ext/bbcode_parser"]
+	path = ext/bbcode_parser
+	url = https://github.com/patorjk/Extendible-BBCode-Parser.git
