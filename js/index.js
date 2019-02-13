@@ -176,72 +176,72 @@ for (var i in page_data["courses"]) {
     courses_container.appendChild(item);
 }
 
-var projects_container = document.getElementById("projects-container");
-var projects_title_template = document.getElementById("projects-title-template");
-var projects_content_template = document.getElementById("projects-content-template");
-function fill_projects_title_template(project) {
-    item = document.importNode(projects_title_template.content.querySelector("a.list-group-item"), true);
-    item.firstElementChild.setAttribute("data-target", "#proj-" + project["code"]);
-    item.querySelector("h5").textContent = project["title"];
-    item.querySelector("p").textContent = project["short_description"];
-    mems = item.querySelector("small");
-    for (var i in project["members"]) {
-        spacer = document.createTextNode(" ");
-        var mem = document.createElement("span");
-        mem.classList.add("badge", "badge-info");
-        mem.textContent = project["members"][i];
-        mems.appendChild(mem);
-        mems.appendChild(spacer);
-    }
-    return item;
-}
-function fill_projects_content_template(project) {
-    item = document.importNode(projects_content_template.content.querySelector("li"), true);
-    str_parse_result = XBBCODE.process({
-        text: project["content"],
-        removeMisalignedTags: false,
-        addInLineBreaks: false
-    });
-    console.error("Errors", str_parse_result.error);
-    console.dir(str_parse_result.errorQueue);
-    if (!str_parse_result.error) {
-        spacer = document.createTextNode(" ");
-        item.innerHTML = str_parse_result.html;
-        item.id = "proj-" + project["code"];
-        var close_link = document.createElement("a");
-        close_link.href = ""
-        close_link.setAttribute("data-toggle", "collapse");
-        close_link.setAttribute("data-target", "#proj-" + project["code"]);
-        close_link.textContent = "Close";
-        item.appendChild(spacer);
-        item.appendChild(close_link);
-        return item;
-    }
-}
-for (var p in page_data["projects"]) {
-    proj = page_data["projects"][p];
-    projects_container.appendChild(fill_projects_title_template(proj));
-    projects_container.appendChild(fill_projects_content_template(proj));
-}
+// var projects_container = document.getElementById("projects-container");
+// var projects_title_template = document.getElementById("projects-title-template");
+// var projects_content_template = document.getElementById("projects-content-template");
+// function fill_projects_title_template(project) {
+//     item = document.importNode(projects_title_template.content.querySelector("a.list-group-item"), true);
+//     item.firstElementChild.setAttribute("data-target", "#proj-" + project["code"]);
+//     item.querySelector("h5").textContent = project["title"];
+//     item.querySelector("p").textContent = project["short_description"];
+//     mems = item.querySelector("small");
+//     for (var i in project["members"]) {
+//         spacer = document.createTextNode(" ");
+//         var mem = document.createElement("span");
+//         mem.classList.add("badge", "badge-info");
+//         mem.textContent = project["members"][i];
+//         mems.appendChild(mem);
+//         mems.appendChild(spacer);
+//     }
+//     return item;
+// }
+// function fill_projects_content_template(project) {
+//     item = document.importNode(projects_content_template.content.querySelector("li"), true);
+//     str_parse_result = XBBCODE.process({
+//         text: project["content"],
+//         removeMisalignedTags: false,
+//         addInLineBreaks: false
+//     });
+//     console.error("Errors", str_parse_result.error);
+//     console.dir(str_parse_result.errorQueue);
+//     if (!str_parse_result.error) {
+//         spacer = document.createTextNode(" ");
+//         item.innerHTML = str_parse_result.html;
+//         item.id = "proj-" + project["code"];
+//         var close_link = document.createElement("a");
+//         close_link.href = ""
+//         close_link.setAttribute("data-toggle", "collapse");
+//         close_link.setAttribute("data-target", "#proj-" + project["code"]);
+//         close_link.textContent = "Close";
+//         item.appendChild(spacer);
+//         item.appendChild(close_link);
+//         return item;
+//     }
+// }
+// for (var p in page_data["projects"]) {
+//     proj = page_data["projects"][p];
+//     projects_container.appendChild(fill_projects_title_template(proj));
+//     projects_container.appendChild(fill_projects_content_template(proj));
+// }
 
-var students_container = document.getElementById("students-container");
-var students_template = document.getElementById("students-template");
-for (var i in page_data["student"]) {
-    card = document.importNode(students_template.content.querySelector("div.card-student"), true);
+// var students_container = document.getElementById("students-container");
+// var students_template = document.getElementById("students-template");
+// for (var i in page_data["student"]) {
+//     card = document.importNode(students_template.content.querySelector("div.card-student"), true);
 
-    card.querySelector("a.img-link-student").href = page_data["student"][i]["homepage_link"]
+//     card.querySelector("a.img-link-student").href = page_data["student"][i]["homepage_link"]
 
-    card.querySelector("img.card-img-top").src = page_data["student"][i]["image_link"];
-    card.querySelector("img.card-img-top").alt = page_data["student"][i]["full_name"] + "'s portrait.";
+//     card.querySelector("img.card-img-top").src = page_data["student"][i]["image_link"];
+//     card.querySelector("img.card-img-top").alt = page_data["student"][i]["full_name"] + "'s portrait.";
 
-    card.querySelector("h5.card-title").textContent = page_data["student"][i]["full_name"];
+//     card.querySelector("h5.card-title").textContent = page_data["student"][i]["full_name"];
 
-    card.querySelector("p.card-text").childNodes[0].textContent = page_data["student"][i]["description"] + " ";
+//     card.querySelector("p.card-text").childNodes[0].textContent = page_data["student"][i]["description"] + " ";
 
-    card.querySelector("a.link-student").href = page_data["student"][i]["homepage_link"];
+//     card.querySelector("a.link-student").href = page_data["student"][i]["homepage_link"];
 
-    students_container.appendChild(card);
-}
+//     students_container.appendChild(card);
+// }
 
 var journals_container = document.getElementById("journals-container");
 var conferences_container = document.getElementById("conferences-container");
