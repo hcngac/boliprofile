@@ -264,7 +264,7 @@ for (var i in page_data["publications"]["journal"]) {
     journals_container.appendChild(fill_publications_template(page_data["publications"]["journal"][i]));
 }
 for (var i in page_data["publications"]["conference"]) {
-    conferences_container.appendChild(fill_publications_template(page_data["publications"]["journal"][i]));
+    conferences_container.appendChild(fill_publications_template(page_data["publications"]["conference"][i]));
 }
 
 var activities_container = document.getElementById("activities-container");
